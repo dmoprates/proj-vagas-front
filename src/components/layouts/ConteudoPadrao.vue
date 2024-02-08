@@ -1,25 +1,35 @@
 <template>
-    <div>
-      <h1>Componente Conteúdo</h1>
+  <div>
+    <keep-alive>
+      <component :is="conteudo" />
+    </keep-alive>
+  </div>
+</template>
 
-      <HomeView></HomeView>
-      <PublicarVaga></PublicarVaga>
-    </div>
-  </template>
-  
-  <script>
-    import HomeView from '../views/Home.vue'
-    import PublicarVaga from '../views/PublicarVaga.vue'
-    export default{
-      name:'ConteudoPadrao',
-      components: {
-        HomeView,
-        PublicarVaga
-      }
+<script>
+import Home from '@/components/views/Home.vue'
+import PublicarVaga from '@/components/views/PublicarVaga.vue'
+export default {
+  name: 'ConteudoPadrao',
+  props: {
+    conteudo: {
+      type: String,
+      required: true
     }
-  </script>
+  },
+  components: {
+    Home,
+    PublicarVaga
+  },
   
-  
-  <style scoped>
+}
+</script>
 
-  </style>
+<style module>
+.teste {
+  background-color: red
+}
+#teste-2 {
+  background-color: yellow
+}
+</style>
